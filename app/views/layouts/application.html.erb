@@ -12,10 +12,10 @@
 
   <body>
 
-    <%= render 'shared/navbar' %>
+    <%= render 'shared/navbar' unless controller_name == "pages" && action_name == "home"  %>
 
     <%= yield %>
 
-  <%= cloudinary_js_config %>
+    <%= cloudinary_js_config %>
   </body>
 </html>

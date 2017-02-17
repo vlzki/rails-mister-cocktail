@@ -1,6 +1,6 @@
 class DosesController < ApplicationController
 
-  before_action :set_dose, only: [:create]
+  before_action :set_cocktail, only: [:create]
 
   def index
     @doses = Dose.all
@@ -8,7 +8,7 @@ class DosesController < ApplicationController
 
   def create
     @new_dose = Dose.new(dose_params)         # ou @cocktail.doses.build
-    @ingredients = Ingredient.all
+    # @ingredients = Ingredient.all
     @new_dose.cocktail = @cocktail
     if @new_dose.save
       redirect_to @cocktail # = cocktail_path(@cocktail)
@@ -25,7 +25,7 @@ class DosesController < ApplicationController
 
   private
 
-  def set_dose
+  def set_cocktail
     @cocktail = Cocktail.find(params[:cocktail_id])
   end
 

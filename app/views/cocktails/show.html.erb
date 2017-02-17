@@ -2,15 +2,22 @@
 
   <h3><%= @cocktail.name %></h3>
 
+<% if @cocktail.photos? %>
+
+  <% @cocktail.photos.each do |photo| %>
+  <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+  <% end %>
+
+<% end %>
+
 
 
     <% @cocktail.doses.each do |dose|%>
-      <% @product.photos.each do |photo| %>
-        <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
-      <% end %>
       <p><%= dose.description %></p>
       <p><%= dose.ingredient.name %></p>
+
       <%= link_to "delete", dose_path(dose), method: :delete %>
+
     <% end %>
 
 

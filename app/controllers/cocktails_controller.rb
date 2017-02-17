@@ -1,5 +1,5 @@
 class CocktailsController < ApplicationController
-before_action :set_cocktail, only: [:show, :edit]
+before_action :set_cocktail, only: [:show, :edit, :destroy]
 
   def index
     @cocktails = Cocktail.all
@@ -17,10 +17,15 @@ before_action :set_cocktail, only: [:show, :edit]
   def create
     @cocktail = Cocktail.new(cocktail_params)
     if @cocktail.save
-      redirect_to cocktails_path
+      redirect_to cocktails_path, notice: 'successfully creating!'
     else
       render :new
     end
+  end
+
+  def destroy
+    @cocktail = Cocktail.destroy(params[:id])
+    redirect_to cocktails_path
   end
 
 
