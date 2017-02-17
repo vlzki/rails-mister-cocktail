@@ -5,6 +5,9 @@
 
 
     <% @cocktail.doses.each do |dose|%>
+      <% @product.photos.each do |photo| %>
+        <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+      <% end %>
       <p><%= dose.description %></p>
       <p><%= dose.ingredient.name %></p>
       <%= link_to "delete", dose_path(dose), method: :delete %>
@@ -13,7 +16,8 @@
 
 
 
-  <%= link_to 'back', cocktails_path %>
+
+  <hr>
 
   <%= render 'doses/form' %>
 </div>
