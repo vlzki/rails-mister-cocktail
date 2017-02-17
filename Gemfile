@@ -48,6 +48,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'binding_of_caller'
   gem 'better_errors'
+  gem 'rails-controller-testing'
 end
 
 group :development do

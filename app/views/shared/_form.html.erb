@@ -1,0 +1,6 @@
+<%= link_to 'retour', cocktails_path %>
+
+<%= simple_form_for @cocktail do |f| %>
+<%= f.input :name, label: 'name' %>
+<%= f.button :submit, class: 'btn btn-primary' %>
+<% end %>
