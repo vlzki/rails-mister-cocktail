@@ -7,8 +7,9 @@ class DosesController < ApplicationController
   end
 
   def create
+    # @new_dose = @cocktail.doses.new(dose_params)
     @new_dose = Dose.new(dose_params)         # ou @cocktail.doses.build
-    # @ingredients = Ingredient.all
+    @ingredients = Ingredient.all
     @new_dose.cocktail = @cocktail
     if @new_dose.save
       redirect_to @cocktail # = cocktail_path(@cocktail)

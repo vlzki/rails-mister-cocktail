@@ -13,5 +13,9 @@
 @import "components/index";
 @import "pages/index";
 @import "vendor/index";
+@import "cocktail";
 
 
+.attachinary_container ul li {
+  list-style: none
+}
